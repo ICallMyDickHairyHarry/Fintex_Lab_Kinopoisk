@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Fintex Lab Kinopoisk</string>
+    <string name="card_description">%s (%s)</string>
+    <string name="try_again">Повторить</string>
+    <string name="connection_error_text">Произошла ошибка при загрузке данных, проверьте подключение к сети</string>
+    <string name="genres">Жанры: </string>
+    <string name="countries">Страны: </string>
+    <string name="year">Год: %s</string>
+    <string name="popular">Популярные</string>
+    <string name="film_name">{filmName}</string>
+    <string name="search_title">поиск</string>
+    <string name="test_string">Триллер (2022)</string>
+</resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="film"
+            type="com.example.fintexlabkinopoisk.network.Film" />
+
+        <variable
+            name="clickListener"
+            type="com.example.fintexlabkinopoisk.popular.FilmListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/film_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:onClick="@{() -> clickListener.onClick(film)}"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/film_image"
+                android:layout_width="40dp"
+                android:layout_height="63dp"
+                android:adjustViewBounds="true"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{film.posterUrlPreview}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/roundedImageView"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/film_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="6dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{film.nameRu}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/film_image"
+                app:layout_constraintTop_toTopOf="@+id/film_image"
+                tools:text="Изгой-один: Звёздные..." />
+
+            <TextView
+                android:id="@+id/film_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:textColor="#60000000"
+                app:descriptionText="@{film}"
+                app:layout_constraintStart_toStartOf="@+id/film_title"
+                app:layout_constraintTop_toBottomOf="@+id/film_title"
+                tools:text="Фантастика (2016)" />
+            <!--previous solution-->
+            <!--android:text='@{film.genres[0]["genre"] + " (" + film.year + ")"}'-->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</layout>

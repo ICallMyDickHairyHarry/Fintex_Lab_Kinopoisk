@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/popularFragment2">
+
+    <fragment
+        android:id="@+id/popularFragment2"
+        android:name="com.example.fintexlabkinopoisk.popular.PopularFragment"
+        android:label="@string/popular">
+        <action
+            android:id="@+id/action_popularFragment2_to_filmDetailFragment"
+            app:destination="@id/filmDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filmDetailFragment"
+        android:name="com.example.fintexlabkinopoisk.popular.FilmDetailFragment"
+        android:label="@string/film_name"
+        tools:layout="@layout/fragment_film_detail">
+        <argument
+            android:name="filmName"
+            app:argType="string" />
+        <argument
+            android:name="filmId"
+            app:argType="integer" />
+    </fragment>
+</navigation>
